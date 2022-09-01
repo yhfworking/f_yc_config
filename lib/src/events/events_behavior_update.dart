@@ -1,0 +1,3 @@
+class EventsBehaviorUpdate {
+  EventsBehaviorUpdate();
+}

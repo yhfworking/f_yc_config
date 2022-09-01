@@ -1,0 +1,3 @@
+class EventsWalletUpdate {
+  EventsWalletUpdate();
+}

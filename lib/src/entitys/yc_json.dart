@@ -1,10 +1,10 @@
-class YcConfig {
-  final int? reviewExpired;
+class YcJson {
+  final int? reviewExpiredTimestamp;
   final int? primaryColor;
   final int? primaryTextColor;
   final int? primarySubTextColor;
   final String? appName;
-  final String? appStoreAppId;
+  final String? appStoreId;
   final String? packageName;
   final String? copyright;
   final String? wxAppId;
@@ -47,13 +47,13 @@ class YcConfig {
   final String? shareLogo;
   final String? shareUrl;
 
-  const YcConfig(
-      {this.reviewExpired,
+  const YcJson(
+      {this.reviewExpiredTimestamp,
       this.primaryColor,
       this.primaryTextColor,
       this.primarySubTextColor,
       this.appName,
-      this.appStoreAppId,
+      this.appStoreId,
       this.packageName,
       this.copyright,
       this.wxAppId,
@@ -96,14 +96,14 @@ class YcConfig {
       this.shareLogo,
       this.shareUrl});
 
-  factory YcConfig.fromJson(Map<String, dynamic> json) => YcConfig(
-        reviewExpired: json["reviewExpired"] ?? 0,
+  factory YcJson.fromJson(Map<String, dynamic> json) => YcJson(
+        reviewExpiredTimestamp: json["reviewExpiredTimestamp"] ?? 0,
         primaryColor: int.parse(json["primaryColor"] ?? 0xFF5dd0ff),
         primaryTextColor: int.parse(json["primaryTextColor"] ?? 0xFF303133),
         primarySubTextColor:
             int.parse(json["primarySubTextColor"] ?? 0xFF606266),
         appName: json["appName"] ?? '',
-        appStoreAppId: json["appStoreAppId"] ?? '',
+        appStoreId: json["appStoreId"] ?? '',
         packageName: json["packageName"] ?? '',
         copyright: json["copyright"] ?? '',
         wxAppId: json["wxAppId"] ?? '',

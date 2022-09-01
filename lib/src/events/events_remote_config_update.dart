@@ -1,0 +1,3 @@
+class EventsRemoteConfigUpdate {
+  EventsRemoteConfigUpdate();
+}

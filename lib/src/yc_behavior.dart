@@ -1,4 +1,4 @@
-class Behavior {
+class YcBehavior {
   final int? lastSignDate;
   final int? continuitySignTimes;
   final int? lastAppPraiseDate;
@@ -7,7 +7,7 @@ class Behavior {
   final bool? isContinuity30RewardEnable;
   final bool? isContinuity365RewardEnable;
 
-  const Behavior(
+  const YcBehavior(
       {this.lastSignDate,
       this.continuitySignTimes,
       this.lastAppPraiseDate,
@@ -16,7 +16,7 @@ class Behavior {
       this.isContinuity30RewardEnable,
       this.isContinuity365RewardEnable});
 
-  factory Behavior.fromJson(Map<String, dynamic> json) => Behavior(
+  factory YcBehavior.fromJson(Map<String, dynamic> json) => YcBehavior(
       lastSignDate: json["last_sign_date"] ?? 0,
       continuitySignTimes: json["continuity_sign_times"] ?? 0,
       lastAppPraiseDate: json["last_app_praise_date"] ?? 0,

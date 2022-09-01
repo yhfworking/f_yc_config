@@ -1,4 +1,4 @@
-class Config {
+class YcConfig {
   final int? reviewExpired;
   final int? primaryColor;
   final int? primaryTextColor;
@@ -47,7 +47,7 @@ class Config {
   final String? shareLogo;
   final String? shareUrl;
 
-  const Config(
+  const YcConfig(
       {this.reviewExpired,
       this.primaryColor,
       this.primaryTextColor,
@@ -96,7 +96,7 @@ class Config {
       this.shareLogo,
       this.shareUrl});
 
-  factory Config.fromJson(Map<String, dynamic> json) => Config(
+  factory YcConfig.fromJson(Map<String, dynamic> json) => YcConfig(
         reviewExpired: json["reviewExpired"] ?? 0,
         primaryColor: int.parse(json["primaryColor"] ?? 0xFF5dd0ff),
         primaryTextColor: int.parse(json["primaryTextColor"] ?? 0xFF303133),

@@ -1,14 +1,14 @@
 import 'index.dart';
 
-class RemoteConfig {
-  final RemoteAd? ad;
-  final RemoteShare? share;
-  final RemoteVersion? version;
+class YcRemoteConfig {
+  final YcRemoteAd? ad;
+  final YcRemoteShare? share;
+  final YcRemoteVersion? version;
   final List? apps;
 
-  const RemoteConfig({this.ad, this.share, this.version, this.apps});
+  const YcRemoteConfig({this.ad, this.share, this.version, this.apps});
 
-  factory RemoteConfig.fromJson(Map<String, dynamic> json) {
+  factory YcRemoteConfig.fromJson(Map<String, dynamic> json) {
     // var appsMapList = json["apps"] ?? [];
     // List<EntitysRemoteConfigApps> appsList = [];
     // for (var i = 0; i < appsMapList.length; i++) {
@@ -21,10 +21,10 @@ class RemoteConfig {
     //     appsList.add(thisApp);
     //   }
     // }
-    return RemoteConfig(
-      ad: RemoteAd.fromJson(json["ad"] ?? {}),
-      share: RemoteShare.fromJson(json["share"] ?? {}),
-      version: RemoteVersion.fromJson(json["version"] ?? {}),
+    return YcRemoteConfig(
+      ad: YcRemoteAd.fromJson(json["ad"] ?? {}),
+      share: YcRemoteShare.fromJson(json["share"] ?? {}),
+      version: YcRemoteVersion.fromJson(json["version"] ?? {}),
       apps: json["apps"] ?? [],
     );
   }

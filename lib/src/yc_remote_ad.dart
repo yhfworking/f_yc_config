@@ -1,10 +1,10 @@
-class RemoteAd {
+class YcRemoteAd {
   final int? interstitialAdIntervalSec;
   final int? rewardAdIntervalSec;
 
-  const RemoteAd({this.interstitialAdIntervalSec, this.rewardAdIntervalSec});
+  const YcRemoteAd({this.interstitialAdIntervalSec, this.rewardAdIntervalSec});
 
-  factory RemoteAd.fromJson(Map<String, dynamic> json) => RemoteAd(
+  factory YcRemoteAd.fromJson(Map<String, dynamic> json) => YcRemoteAd(
       interstitialAdIntervalSec: json["interstitialAdIntervalSec"] ?? 120,
       rewardAdIntervalSec: json["rewardAdIntervalSec"] ?? 120);
 

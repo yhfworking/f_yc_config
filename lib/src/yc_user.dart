@@ -1,15 +1,15 @@
-class User {
+class YcUser {
   final String? userId;
   final String? nickname;
   final String? avatar;
 
-  const User({
+  const YcUser({
     this.userId,
     this.nickname,
     this.avatar,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
+  factory YcUser.fromJson(Map<String, dynamic> json) => YcUser(
         userId: json["userId"] ?? '',
         nickname: json["nickname"] ?? '',
         avatar: json["avatar"] ?? '',

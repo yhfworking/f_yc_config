@@ -91,6 +91,22 @@ class YcConfig {
       await GetStorage().write(
           'Storage_Key_apis_uri_remote_config', json.apiUriRemoteConfig ?? '');
     }
+    if (json.apiUriWxLogin != null) {
+      await GetStorage()
+          .write('Storage_Key_apis_uri_wx_login', json.apiUriWxLogin ?? '');
+    }
+    if (json.apiUriMobileLoginUri != null) {
+      await GetStorage().write(
+          'Storage_Key_apis_uri_mobile_login', json.apiUriMobileLoginUri ?? '');
+    }
+    if (json.apiUriAppleLoginUri != null) {
+      await GetStorage().write(
+          'Storage_Key_apis_uri_apple_login', json.apiUriAppleLoginUri ?? '');
+    }
+    if (json.apiUriLogoutUri != null) {
+      await GetStorage()
+          .write('Storage_Key_apis_uri_logout', json.apiUriLogoutUri ?? '');
+    }
     if (json.apiUriWalletInfo != null) {
       await GetStorage().write(
           'Storage_Key_apis_uri_wallet_info', json.apiUriWalletInfo ?? '');
@@ -436,6 +452,22 @@ class YcConfig {
 
   static String apiUriRemoteConfig() {
     return GetStorage().read('Storage_Key_apis_uri_remote_config') ?? '';
+  }
+
+  static String apiUriWxLogin() {
+    return GetStorage().read('Storage_Key_apis_uri_wx_login') ?? '';
+  }
+
+  static String apiUriMobileLoginUri() {
+    return GetStorage().read('Storage_Key_apis_uri_mobile_login') ?? '';
+  }
+
+  static String apiUriAppleLoginUri() {
+    return GetStorage().read('Storage_Key_apis_uri_apple_login') ?? '';
+  }
+
+  static String apiUriLogoutUri() {
+    return GetStorage().read('Storage_Key_apis_uri_logout') ?? '';
   }
 
   static String apiUriWalletInfo() {

@@ -29,6 +29,10 @@ class YcJson {
   final String? apiAppkey;
   final String? apiAppSecret;
   final String? apiUriRemoteConfig;
+  final String? apiUriWxLogin;
+  final String? apiUriAppleLoginUri;
+  final String? apiUriMobileLoginUri;
+  final String? apiUriLogoutUri;
   final String? apiUriWalletInfo;
   final String? apiUriBehaviorInfo;
   final String? apiUriSubmitCashOut;
@@ -78,6 +82,10 @@ class YcJson {
       this.apiAppkey,
       this.apiAppSecret,
       this.apiUriRemoteConfig,
+      this.apiUriWxLogin,
+      this.apiUriMobileLoginUri,
+      this.apiUriAppleLoginUri,
+      this.apiUriLogoutUri,
       this.apiUriWalletInfo,
       this.apiUriBehaviorInfo,
       this.apiUriSubmitCashOut,
@@ -128,6 +136,10 @@ class YcJson {
         apiAppkey: json["apiAppkey"] ?? '',
         apiAppSecret: json["apiAppSecret"] ?? '',
         apiUriRemoteConfig: json["apiUriRemoteConfig"] ?? '',
+        apiUriWxLogin: json["apiUriWxLogin"] ?? '',
+        apiUriMobileLoginUri: json["apiUriMobileLoginUri"] ?? '',
+        apiUriAppleLoginUri: json["apiUriAppleLoginUri"] ?? '',
+        apiUriLogoutUri: json["apiUriLogoutUri"] ?? '',
         apiUriWalletInfo: json["apiUriWalletInfo"] ?? '',
         apiUriBehaviorInfo: json["apiUriBehaviorInfo"] ?? '',
         apiUriSubmitCashOut: json["apiUriSubmitCashOut"] ?? '',

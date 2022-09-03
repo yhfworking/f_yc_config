@@ -25,6 +25,9 @@ class YcConfig {
     if (json.appName != null) {
       await GetStorage().write('Storage_Key_app_name', json.appName ?? '');
     }
+    if (json.appNameEn != null) {
+      await GetStorage().write('Storage_Key_app_name_en', json.appNameEn ?? '');
+    }
     if (json.appStoreId != null) {
       await GetStorage()
           .write('Storage_Key_app_store_id', json.appStoreId ?? '');
@@ -384,6 +387,10 @@ class YcConfig {
 
   static String appName() {
     return GetStorage().read('Storage_Key_app_name') ?? '';
+  }
+
+  static String appNameEn() {
+    return GetStorage().read('Storage_Key_app_name_en') ?? '';
   }
 
   static String appStoreId() {

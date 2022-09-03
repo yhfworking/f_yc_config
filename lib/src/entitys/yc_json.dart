@@ -4,6 +4,7 @@ class YcJson {
   final int? primaryTextColor;
   final int? primarySubTextColor;
   final String? appName;
+  final String? appNameEn;
   final String? appStoreId;
   final String? packageName;
   final String? copyright;
@@ -57,6 +58,7 @@ class YcJson {
       this.primaryTextColor,
       this.primarySubTextColor,
       this.appName,
+      this.appNameEn,
       this.appStoreId,
       this.packageName,
       this.copyright,
@@ -111,6 +113,7 @@ class YcJson {
         primarySubTextColor:
             int.parse(json["primarySubTextColor"] ?? 0xFF606266),
         appName: json["appName"] ?? '',
+        appNameEn: json["appNameEn"] ?? '',
         appStoreId: json["appStoreId"] ?? '',
         packageName: json["packageName"] ?? '',
         copyright: json["copyright"] ?? '',

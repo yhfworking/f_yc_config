@@ -188,6 +188,13 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
   String get shareUrl =>
       _shareUrl ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.shareUrl;
 
+  bool isInR() {
+    if (DateTime.now().millisecondsSinceEpoch < preRETimestamp) {
+      return true;
+    }
+    return false;
+  }
+
   /// 优先级 [GLOBAL_CONFIG_ID] 获取配置 > [KIT_CONFIG_ID] 获取配置
   @override
   void initConfig(

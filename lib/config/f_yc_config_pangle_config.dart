@@ -1,4 +1,5 @@
 import 'package:f_yc_config/f_yc_config.dart';
+import 'package:get_storage/get_storage.dart';
 
 class FYcConfigPangleConfig extends FYcConfigBaseConfig {
   FYcConfigPangleConfig({
@@ -9,6 +10,8 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
     String? bannerAdId,
     String? profileBannerAdId,
     String? welfareReBannerAdId,
+    int? interstitialAdIntervalSec,
+    int? rewardAdIntervalSec,
     String configId = GLOBAL_CONFIG_ID,
   })  : _appId = appId,
         _splashAdId = splashAdId,
@@ -17,6 +20,8 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
         _bannerAdId = bannerAdId,
         _profileBannerAdId = profileBannerAdId,
         _welfareReBannerAdId = welfareReBannerAdId,
+        _interstitialAdIntervalSec = interstitialAdIntervalSec,
+        _rewardAdIntervalSec = rewardAdIntervalSec,
         super(configId: configId);
 
   String? _appId;
@@ -26,6 +31,8 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
   String? _bannerAdId;
   String? _profileBannerAdId;
   String? _welfareReBannerAdId;
+  int? _interstitialAdIntervalSec;
+  int? _rewardAdIntervalSec;
 
   String get appId =>
       _appId ?? FYcConfigDefaultConfigUtils.defaultPangleConfig.appId;
@@ -51,6 +58,45 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
       _welfareReBannerAdId ??
       FYcConfigDefaultConfigUtils.defaultPangleConfig.welfareReBannerAdId;
 
+  int get interstitialAdIntervalSec =>
+      _interstitialAdIntervalSec ??
+      FYcConfigDefaultConfigUtils.defaultPangleConfig.interstitialAdIntervalSec;
+
+  int get rewardAdIntervalSec =>
+      _rewardAdIntervalSec ??
+      FYcConfigDefaultConfigUtils.defaultPangleConfig.rewardAdIntervalSec;
+
+  bool isInterstitialAdEnableShow() {
+    if (interstitialAdIntervalSec == 0) {
+      return true;
+    }
+    int lastInterstitialAdShowTimestamp = GetStorage()
+            .read('sk_f_yc_config_last_interstitial_ad_show_timestamp') ??
+        0;
+    int diffMs = (DateTime.now().millisecondsSinceEpoch -
+            lastInterstitialAdShowTimestamp)
+        .abs();
+    if (diffMs > interstitialAdIntervalSec * 1000) {
+      return true;
+    }
+    return false;
+  }
+
+  bool isRewardAdEnableShow() {
+    if (rewardAdIntervalSec == 0) {
+      return true;
+    }
+    int lastInterstitialAdShowTimestamp =
+        GetStorage().read('sk_f_yc_config_last_reward_ad_show_timestamp') ?? 0;
+    int diffMs = (DateTime.now().millisecondsSinceEpoch -
+            lastInterstitialAdShowTimestamp)
+        .abs();
+    if (diffMs > rewardAdIntervalSec * 1000) {
+      return true;
+    }
+    return false;
+  }
+
   @override
   void initConfig(
     String configId, {
@@ -71,6 +117,8 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
     _bannerAdId ??= pangleConfig._bannerAdId;
     _profileBannerAdId ??= pangleConfig._profileBannerAdId;
     _welfareReBannerAdId ??= pangleConfig._welfareReBannerAdId;
+    _interstitialAdIntervalSec ??= pangleConfig._interstitialAdIntervalSec;
+    _rewardAdIntervalSec ??= pangleConfig._rewardAdIntervalSec;
   }
 
   FYcConfigPangleConfig copyWith(
@@ -80,7 +128,9 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
       String? rewardAdId,
       String? bannerAdId,
       String? profileBannerAdId,
-      String? welfareReBannerAdId}) {
+      String? welfareReBannerAdId,
+      int? interstitialAdIntervalSec,
+      int? rewardAdIntervalSec}) {
     return FYcConfigPangleConfig(
         appId: appId ?? _appId,
         splashAdId: splashAdId ?? _splashAdId,
@@ -88,7 +138,10 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
         rewardAdId: rewardAdId ?? _rewardAdId,
         bannerAdId: bannerAdId ?? _bannerAdId,
         profileBannerAdId: profileBannerAdId ?? _profileBannerAdId,
-        welfareReBannerAdId: welfareReBannerAdId ?? _welfareReBannerAdId);
+        welfareReBannerAdId: welfareReBannerAdId ?? _welfareReBannerAdId,
+        interstitialAdIntervalSec:
+            interstitialAdIntervalSec ?? _interstitialAdIntervalSec,
+        rewardAdIntervalSec: rewardAdIntervalSec ?? _rewardAdIntervalSec);
   }
 
   FYcConfigPangleConfig merge(FYcConfigPangleConfig? other) {
@@ -100,6 +153,8 @@ class FYcConfigPangleConfig extends FYcConfigBaseConfig {
         rewardAdId: other._rewardAdId,
         bannerAdId: other._bannerAdId,
         profileBannerAdId: other._profileBannerAdId,
-        welfareReBannerAdId: other._welfareReBannerAdId);
+        welfareReBannerAdId: other._welfareReBannerAdId,
+        interstitialAdIntervalSec: other._interstitialAdIntervalSec,
+        rewardAdIntervalSec: other._rewardAdIntervalSec);
   }
 }

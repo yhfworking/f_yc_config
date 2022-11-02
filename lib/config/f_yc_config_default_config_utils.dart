@@ -49,7 +49,9 @@ class FYcConfigDefaultConfigUtils {
       rewardAdId: '',
       bannerAdId: '',
       profileBannerAdId: '',
-      welfareReBannerAdId: '');
+      welfareReBannerAdId: '',
+      interstitialAdIntervalSec: 0,
+      rewardAdIntervalSec: 0);
 
   /// Mtj配置
   static FYcConfigMtjConfig defaultMtjConfig =

@@ -11,10 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get_storage: ^2.0.3
-  event_bus: ^2.0.0
-  f_yc_utils:
-    git: https://github.com/yhfworking/f_yc_utils.git
+  # get_storage: ^2.0.3
+  # event_bus: ^2.0.0
+  # f_yc_utils:
+  #   git: https://github.com/yhfworking/f_yc_utils.git
 
 dev_dependencies:
   flutter_test:

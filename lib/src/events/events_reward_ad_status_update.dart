@@ -1,3 +1,0 @@
-class EventsRewardAdStatusUpdate {
-  EventsRewardAdStatusUpdate();
-}

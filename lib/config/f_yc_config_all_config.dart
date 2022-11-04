@@ -14,7 +14,8 @@ class FYcConfigAllConfig {
         _pangrowthConfig = pangrowthConfig,
         _pangleConfig = pangleConfig,
         _mtjConfig = mtjConfig,
-        _wechatConfig = wechatConfig;
+        _wechatConfig = wechatConfig,
+        _apiConfig = apiConfig;
 
   FYcConfigCommonConfig? _commonConfig;
 

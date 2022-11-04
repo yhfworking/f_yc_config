@@ -11,6 +11,8 @@ class FYcConfigDefaultConfigUtils {
     pangrowthConfig: defaultPangrowthConfig,
     pangleConfig: defaultPangleConfig,
     wechatConfig: defaultWechatConfig,
+    mtjConfig: defaultMtjConfig,
+    apiConfig: defaultApiConfig,
   );
 
   /// 全局默认配置
@@ -28,9 +30,6 @@ class FYcConfigDefaultConfigUtils {
       defalutAvatarUrl: '',
       userAgreementUrl: '',
       privacyPolicyUrl: '',
-      apiHost: '',
-      apiAppkey: '',
-      apiAppSecret: '',
       shareTitle: '',
       shareDes: '',
       shareLogo: '',
@@ -56,6 +55,10 @@ class FYcConfigDefaultConfigUtils {
   /// Mtj配置
   static FYcConfigMtjConfig defaultMtjConfig =
       FYcConfigMtjConfig(iosAppKey: '', androidAppKey: '');
+
+  /// Api配置
+  static FYcConfigApiConfig defaultApiConfig =
+      FYcConfigApiConfig(host: '', appkey: '', appSecret: '');
 
   /// Wechat配置
   static FYcConfigWechatConfig defaultWechatConfig = FYcConfigWechatConfig(

@@ -19,9 +19,6 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
     String? defalutAvatarUrl,
     String? userAgreementUrl,
     String? privacyPolicyUrl,
-    String? apiHost,
-    String? apiAppkey,
-    String? apiAppSecret,
     String? shareTitle,
     String? shareDes,
     String? shareLogo,
@@ -40,9 +37,6 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
         _defalutAvatarUrl = defalutAvatarUrl,
         _userAgreementUrl = userAgreementUrl,
         _privacyPolicyUrl = privacyPolicyUrl,
-        _apiHost = apiHost,
-        _apiAppkey = apiAppkey,
-        _apiAppSecret = apiAppSecret,
         _shareTitle = shareTitle,
         _shareDes = shareDes,
         _shareLogo = shareLogo,
@@ -63,11 +57,6 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
     String? defalutAvatarUrl,
     String? userAgreementUrl,
     String? privacyPolicyUrl,
-    String? mtjAppKeyIos,
-    String? mtjAppKeyAndroid,
-    String? apiHost,
-    String? apiAppkey,
-    String? apiAppSecret,
     String? shareTitle,
     String? shareDes,
     String? shareLogo,
@@ -86,9 +75,6 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
         _defalutAvatarUrl = defalutAvatarUrl,
         _userAgreementUrl = userAgreementUrl,
         _privacyPolicyUrl = privacyPolicyUrl,
-        _apiHost = apiHost,
-        _apiAppkey = apiAppkey,
-        _apiAppSecret = apiAppSecret,
         _shareTitle = shareTitle,
         _shareDes = shareDes,
         _shareLogo = shareLogo,
@@ -120,9 +106,6 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
   String? _defalutAvatarUrl;
   String? _userAgreementUrl;
   String? _privacyPolicyUrl;
-  String? _apiHost;
-  String? _apiAppkey;
-  String? _apiAppSecret;
   String? _shareTitle;
   String? _shareDes;
   String? _shareLogo;
@@ -172,13 +155,6 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
   String get privacyPolicyUrl =>
       _privacyPolicyUrl ??
       FYcConfigDefaultConfigUtils.defaultCommonConfig.privacyPolicyUrl;
-  String get apiHost =>
-      _apiHost ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.apiHost;
-  String get apiAppkey =>
-      _apiAppkey ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.apiAppkey;
-  String get apiAppSecret =>
-      _apiAppSecret ??
-      FYcConfigDefaultConfigUtils.defaultCommonConfig.apiAppSecret;
   String get shareTitle =>
       _shareTitle ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.shareTitle;
   String get shareDes =>
@@ -220,9 +196,6 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
     _defalutAvatarUrl ??= commonConfig._defalutAvatarUrl;
     _userAgreementUrl ??= commonConfig._userAgreementUrl;
     _privacyPolicyUrl ??= commonConfig._privacyPolicyUrl;
-    _apiHost ??= commonConfig._apiHost;
-    _apiAppkey ??= commonConfig._apiAppkey;
-    _apiAppSecret ??= commonConfig._apiAppSecret;
     _shareTitle ??= commonConfig._shareTitle;
     _shareDes ??= commonConfig._shareDes;
     _shareLogo ??= commonConfig._shareLogo;

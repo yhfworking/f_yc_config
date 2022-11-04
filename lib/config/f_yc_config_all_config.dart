@@ -8,6 +8,7 @@ class FYcConfigAllConfig {
       FYcConfigPangleConfig? pangleConfig,
       FYcConfigMtjConfig? mtjConfig,
       FYcConfigWechatConfig? wechatConfig,
+      FYcConfigApiConfig? apiConfig,
       String configId = GLOBAL_CONFIG_ID})
       : _commonConfig = commonConfig,
         _pangrowthConfig = pangrowthConfig,
@@ -40,12 +41,18 @@ class FYcConfigAllConfig {
   FYcConfigWechatConfig get wechatConfig =>
       _wechatConfig ?? FYcConfigDefaultConfigUtils.defaultWechatConfig;
 
+  FYcConfigApiConfig? _apiConfig;
+
+  FYcConfigApiConfig get apiConfig =>
+      _apiConfig ?? FYcConfigDefaultConfigUtils.defaultApiConfig;
+
   void initConfig(String configId) {
     _commonConfig ??= FYcConfigCommonConfig();
     _pangrowthConfig ??= FYcConfigPangrowthConfig();
     _pangleConfig ??= FYcConfigPangleConfig();
     _mtjConfig ??= FYcConfigMtjConfig();
     _wechatConfig ??= FYcConfigWechatConfig();
+    _apiConfig ??= FYcConfigApiConfig();
     commonConfig.initConfig(configId);
     pangrowthConfig.initConfig(
       configId,
@@ -60,6 +67,10 @@ class FYcConfigAllConfig {
       currentLevelCommonConfig: commonConfig,
     );
     wechatConfig.initConfig(
+      configId,
+      currentLevelCommonConfig: commonConfig,
+    );
+    apiConfig.initConfig(
       configId,
       currentLevelCommonConfig: commonConfig,
     );

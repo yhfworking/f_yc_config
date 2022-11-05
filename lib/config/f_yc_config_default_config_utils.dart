@@ -33,7 +33,10 @@ class FYcConfigDefaultConfigUtils {
       shareTitle: '',
       shareDes: '',
       shareLogo: '',
-      shareUrl: '');
+      shareUrl: '',
+      platform: '',
+      os: '',
+      ua: '');
 
   /// Pangrowth配置
   static FYcConfigPangrowthConfig defaultPangrowthConfig =
@@ -58,7 +61,7 @@ class FYcConfigDefaultConfigUtils {
 
   /// Api配置
   static FYcConfigApiConfig defaultApiConfig =
-      FYcConfigApiConfig(host: '', appkey: '', appSecret: '');
+      FYcConfigApiConfig(host: '', appkey: '', appSecret: '', apiVersion: '');
 
   /// Wechat配置
   static FYcConfigWechatConfig defaultWechatConfig = FYcConfigWechatConfig(

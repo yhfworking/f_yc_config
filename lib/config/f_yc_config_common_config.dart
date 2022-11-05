@@ -23,6 +23,9 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
     String? shareDes,
     String? shareLogo,
     String? shareUrl,
+    String? platform,
+    String? os,
+    String? ua,
     String configId = GLOBAL_CONFIG_ID,
   })  : _preRETimestamp = preRETimestamp,
         _primaryColor = primaryColor,
@@ -41,6 +44,9 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
         _shareDes = shareDes,
         _shareLogo = shareLogo,
         _shareUrl = shareUrl,
+        _platform = platform,
+        _os = os,
+        _ua = ua,
         super(configId: configId);
 
   FYcConfigCommonConfig.autoFlatConfig({
@@ -61,6 +67,9 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
     String? shareDes,
     String? shareLogo,
     String? shareUrl,
+    String? platform,
+    String? os,
+    String? ua,
     String configId = GLOBAL_CONFIG_ID,
   })  : _preRETimestamp = preRETimestamp,
         _primaryColor = primaryColor,
@@ -79,6 +88,9 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
         _shareDes = shareDes,
         _shareLogo = shareLogo,
         _shareUrl = shareUrl,
+        _platform = platform,
+        _os = os,
+        _ua = ua,
         super(configId: configId, autoFlatConfig: true);
 
   /// 预计审核通过时间戳
@@ -110,6 +122,9 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
   String? _shareDes;
   String? _shareLogo;
   String? _shareUrl;
+  String? _platform;
+  String? _os;
+  String? _ua;
 
   double get preRETimestamp =>
       _preRETimestamp ??
@@ -164,6 +179,13 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
   String get shareUrl =>
       _shareUrl ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.shareUrl;
 
+  String get platform =>
+      _platform ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.platform;
+
+  String get os => _os ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.os;
+
+  String get ua => _ua ?? FYcConfigDefaultConfigUtils.defaultCommonConfig.ua;
+
   bool isInR() {
     if (DateTime.now().millisecondsSinceEpoch < preRETimestamp) {
       return true;
@@ -200,5 +222,8 @@ class FYcConfigCommonConfig extends FYcConfigBaseConfig {
     _shareDes ??= commonConfig._shareDes;
     _shareLogo ??= commonConfig._shareLogo;
     _shareUrl ??= commonConfig._shareUrl;
+    _platform ??= commonConfig._platform;
+    _os ??= commonConfig._os;
+    _ua ??= commonConfig._ua;
   }
 }

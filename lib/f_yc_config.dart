@@ -11,6 +11,7 @@ export './config/f_yc_config_pangrowth_config.dart';
 export './config/f_yc_config_pangle_config.dart';
 export './config/f_yc_config_mtj_config.dart';
 export './config/f_yc_config_wechat_config.dart';
+export './config/f_yc_config_storages_config.dart';
 export './config/f_yc_config_api_config.dart';
 
 /// 初始化

@@ -13,7 +13,6 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
     String? lastRemoteConfigTimestampKey,
     String? lastInterstitialAdShowTimestampKey,
     String? lastRewardAdShowTimestampKey,
-    String? rewardAmountKey,
     String configId = GLOBAL_CONFIG_ID,
   })  : _isFirstStartAppKey = isFirstStartAppKey,
         _userTokenKey = userTokenKey,
@@ -27,7 +26,6 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
         _lastInterstitialAdShowTimestampKey =
             lastInterstitialAdShowTimestampKey,
         _lastRewardAdShowTimestampKey = lastRewardAdShowTimestampKey,
-        _rewardAmountKey = rewardAmountKey,
         super(configId: configId);
   String? _isFirstStartAppKey;
   String? _userTokenKey;
@@ -40,7 +38,6 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
   String? _lastRemoteConfigTimestampKey;
   String? _lastInterstitialAdShowTimestampKey;
   String? _lastRewardAdShowTimestampKey;
-  String? _rewardAmountKey;
 
   String get isFirstStartAppKey =>
       _isFirstStartAppKey ??
@@ -89,10 +86,6 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
       FYcConfigDefaultConfigUtils
           .defaultStoragesConfig.lastRewardAdShowTimestampKey;
 
-  String get rewardAmountKey =>
-      _rewardAmountKey ??
-      FYcConfigDefaultConfigUtils.defaultStoragesConfig.rewardAmountKey;
-
   @override
   void initConfig(
     String configId, {
@@ -121,7 +114,6 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
         storagesConfig._lastInterstitialAdShowTimestampKey;
     _lastRewardAdShowTimestampKey ??=
         storagesConfig._lastRewardAdShowTimestampKey;
-    _rewardAmountKey ??= storagesConfig._rewardAmountKey;
   }
 
   FYcConfigStoragesConfig copyWith({
@@ -136,7 +128,6 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
     String? lastRemoteConfigTimestampKey,
     String? lastInterstitialAdShowTimestampKey,
     String? lastRewardAdShowTimestampKey,
-    String? rewardAmountKey,
   }) {
     return FYcConfigStoragesConfig(
         isFirstStartAppKey: isFirstStartAppKey ?? _isFirstStartAppKey,
@@ -154,26 +145,23 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
             lastInterstitialAdShowTimestampKey ??
                 _lastInterstitialAdShowTimestampKey,
         lastRewardAdShowTimestampKey:
-            lastRewardAdShowTimestampKey ?? _lastRewardAdShowTimestampKey,
-        rewardAmountKey: rewardAmountKey ?? _rewardAmountKey);
+            lastRewardAdShowTimestampKey ?? _lastRewardAdShowTimestampKey);
   }
 
   FYcConfigStoragesConfig merge(FYcConfigStoragesConfig? other) {
     if (other == null) return this;
     return copyWith(
-      isFirstStartAppKey: other._isFirstStartAppKey,
-      userTokenKey: other._userTokenKey,
-      userTokenExpiredKey: other._userTokenExpiredKey,
-      userInfoKey: other._userInfoKey,
-      walletInfoKey: other._walletInfoKey,
-      behaviorInfoKey: other._behaviorInfoKey,
-      remoteConfigKey: other._remoteConfigKey,
-      isSignPrivacyPolicyKey: other._isSignPrivacyPolicyKey,
-      lastRemoteConfigTimestampKey: other._lastRemoteConfigTimestampKey,
-      lastInterstitialAdShowTimestampKey:
-          other._lastInterstitialAdShowTimestampKey,
-      lastRewardAdShowTimestampKey: other._lastRewardAdShowTimestampKey,
-      rewardAmountKey: other._rewardAmountKey,
-    );
+        isFirstStartAppKey: other._isFirstStartAppKey,
+        userTokenKey: other._userTokenKey,
+        userTokenExpiredKey: other._userTokenExpiredKey,
+        userInfoKey: other._userInfoKey,
+        walletInfoKey: other._walletInfoKey,
+        behaviorInfoKey: other._behaviorInfoKey,
+        remoteConfigKey: other._remoteConfigKey,
+        isSignPrivacyPolicyKey: other._isSignPrivacyPolicyKey,
+        lastRemoteConfigTimestampKey: other._lastRemoteConfigTimestampKey,
+        lastInterstitialAdShowTimestampKey:
+            other._lastInterstitialAdShowTimestampKey,
+        lastRewardAdShowTimestampKey: other._lastRewardAdShowTimestampKey);
   }
 }

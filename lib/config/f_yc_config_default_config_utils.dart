@@ -1,6 +1,8 @@
 import 'package:f_yc_config/f_yc_config.dart';
 import 'package:flutter/material.dart';
 
+import 'f_yc_config_storages_config.dart';
+
 /// 默认配置
 class FYcConfigDefaultConfigUtils {
   const FYcConfigDefaultConfigUtils._();
@@ -13,6 +15,7 @@ class FYcConfigDefaultConfigUtils {
     wechatConfig: defaultWechatConfig,
     mtjConfig: defaultMtjConfig,
     apiConfig: defaultApiConfig,
+    storagesConfig: defaultStoragesConfig,
   );
 
   /// 全局默认配置
@@ -70,4 +73,16 @@ class FYcConfigDefaultConfigUtils {
       universalLink: '',
       kfServiceUrl: '',
       kfCorpId: '');
+
+  /// Storages配置
+  static FYcConfigStoragesConfig defaultStoragesConfig =
+      FYcConfigStoragesConfig(
+          userTokenKey: '',
+          userTokenExpiredKey: '',
+          userInfoKey: '',
+          walletInfoKey: '',
+          behaviorInfoKey: '',
+          remoteConfigKey: '',
+          isSignPrivacyPolicyKey: '',
+          lastRemoteConfigTimestampKey: '');
 }

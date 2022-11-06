@@ -1,5 +1,7 @@
 import 'package:f_yc_config/f_yc_config.dart';
 
+import 'f_yc_config_storages_config.dart';
+
 /// 描述: 全局配置
 class FYcConfigAllConfig {
   FYcConfigAllConfig(
@@ -9,13 +11,15 @@ class FYcConfigAllConfig {
       FYcConfigMtjConfig? mtjConfig,
       FYcConfigWechatConfig? wechatConfig,
       FYcConfigApiConfig? apiConfig,
+      FYcConfigStoragesConfig? storagesConfig,
       String configId = GLOBAL_CONFIG_ID})
       : _commonConfig = commonConfig,
         _pangrowthConfig = pangrowthConfig,
         _pangleConfig = pangleConfig,
         _mtjConfig = mtjConfig,
         _wechatConfig = wechatConfig,
-        _apiConfig = apiConfig;
+        _apiConfig = apiConfig,
+        _storagesConfig = storagesConfig;
 
   FYcConfigCommonConfig? _commonConfig;
 
@@ -47,6 +51,11 @@ class FYcConfigAllConfig {
   FYcConfigApiConfig get apiConfig =>
       _apiConfig ?? FYcConfigDefaultConfigUtils.defaultApiConfig;
 
+  FYcConfigStoragesConfig? _storagesConfig;
+
+  FYcConfigStoragesConfig get storagesConfig =>
+      _storagesConfig ?? FYcConfigDefaultConfigUtils.defaultStoragesConfig;
+
   void initConfig(String configId) {
     _commonConfig ??= FYcConfigCommonConfig();
     _pangrowthConfig ??= FYcConfigPangrowthConfig();
@@ -54,6 +63,8 @@ class FYcConfigAllConfig {
     _mtjConfig ??= FYcConfigMtjConfig();
     _wechatConfig ??= FYcConfigWechatConfig();
     _apiConfig ??= FYcConfigApiConfig();
+    _storagesConfig ??= FYcConfigStoragesConfig();
+
     commonConfig.initConfig(configId);
     pangrowthConfig.initConfig(
       configId,
@@ -72,6 +83,10 @@ class FYcConfigAllConfig {
       currentLevelCommonConfig: commonConfig,
     );
     apiConfig.initConfig(
+      configId,
+      currentLevelCommonConfig: commonConfig,
+    );
+    storagesConfig.initConfig(
       configId,
       currentLevelCommonConfig: commonConfig,
     );

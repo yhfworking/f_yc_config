@@ -2,7 +2,7 @@ import 'package:f_yc_config/f_yc_config.dart';
 
 class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
   FYcConfigStoragesConfig({
-    String? isInitKey,
+    String? isFirstStartAppKey,
     String? userTokenKey,
     String? userTokenExpiredKey,
     String? userInfoKey,
@@ -15,7 +15,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
     String? lastRewardAdShowTimestampKey,
     String? rewardAmountKey,
     String configId = GLOBAL_CONFIG_ID,
-  })  : _isInitKey = isInitKey,
+  })  : _isFirstStartAppKey = isFirstStartAppKey,
         _userTokenKey = userTokenKey,
         _userTokenExpiredKey = userTokenExpiredKey,
         _userInfoKey = userInfoKey,
@@ -29,7 +29,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
         _lastRewardAdShowTimestampKey = lastRewardAdShowTimestampKey,
         _rewardAmountKey = rewardAmountKey,
         super(configId: configId);
-  String? _isInitKey;
+  String? _isFirstStartAppKey;
   String? _userTokenKey;
   String? _userTokenExpiredKey;
   String? _userInfoKey;
@@ -42,8 +42,9 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
   String? _lastRewardAdShowTimestampKey;
   String? _rewardAmountKey;
 
-  String get isInitKey =>
-      _isInitKey ?? FYcConfigDefaultConfigUtils.defaultStoragesConfig.isInitKey;
+  String get isFirstStartAppKey =>
+      _isFirstStartAppKey ??
+      FYcConfigDefaultConfigUtils.defaultStoragesConfig.isFirstStartAppKey;
 
   String get userTokenKey =>
       _userTokenKey ??
@@ -106,7 +107,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
         .getConfig(configId: configId)
         .storagesConfig;
 
-    _isInitKey ??= storagesConfig._isInitKey;
+    _isFirstStartAppKey ??= storagesConfig._isFirstStartAppKey;
     _userTokenKey ??= storagesConfig._userTokenKey;
     _userTokenExpiredKey ??= storagesConfig._userTokenExpiredKey;
     _userInfoKey ??= storagesConfig._userInfoKey;
@@ -124,7 +125,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
   }
 
   FYcConfigStoragesConfig copyWith({
-    String? isInitKey,
+    String? isFirstStartAppKey,
     String? userTokenKey,
     String? userTokenExpiredKey,
     String? userInfoKey,
@@ -138,7 +139,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
     String? rewardAmountKey,
   }) {
     return FYcConfigStoragesConfig(
-        isInitKey: isInitKey ?? _isInitKey,
+        isFirstStartAppKey: isFirstStartAppKey ?? _isFirstStartAppKey,
         userTokenKey: userTokenKey ?? _userTokenKey,
         userTokenExpiredKey: userTokenExpiredKey ?? _userTokenExpiredKey,
         userInfoKey: userInfoKey ?? _userInfoKey,
@@ -160,7 +161,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
   FYcConfigStoragesConfig merge(FYcConfigStoragesConfig? other) {
     if (other == null) return this;
     return copyWith(
-      isInitKey: other._isInitKey,
+      isFirstStartAppKey: other._isFirstStartAppKey,
       userTokenKey: other._userTokenKey,
       userTokenExpiredKey: other._userTokenExpiredKey,
       userInfoKey: other._userInfoKey,

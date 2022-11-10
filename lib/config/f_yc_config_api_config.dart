@@ -6,6 +6,7 @@ class FYcConfigApiConfig extends FYcConfigBaseConfig {
     String? appkey,
     String? appSecret,
     String? apiVersion,
+    String? appleLoginUri,
     String configId = GLOBAL_CONFIG_ID,
   })  : _host = host,
         _appkey = appkey,

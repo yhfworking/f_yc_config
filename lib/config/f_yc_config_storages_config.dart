@@ -13,6 +13,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
     String? lastRemoteConfigTimestampKey,
     String? lastInterstitialAdShowTimestampKey,
     String? lastRewardAdShowTimestampKey,
+    String? rewardAmountKey,
     String configId = GLOBAL_CONFIG_ID,
   })  : _isFirstStartAppKey = isFirstStartAppKey,
         _userTokenKey = userTokenKey,
@@ -26,6 +27,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
         _lastInterstitialAdShowTimestampKey =
             lastInterstitialAdShowTimestampKey,
         _lastRewardAdShowTimestampKey = lastRewardAdShowTimestampKey,
+        _rewardAmountKey = rewardAmountKey,
         super(configId: configId);
   String? _isFirstStartAppKey;
   String? _userTokenKey;
@@ -38,10 +40,15 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
   String? _lastRemoteConfigTimestampKey;
   String? _lastInterstitialAdShowTimestampKey;
   String? _lastRewardAdShowTimestampKey;
+  String? _rewardAmountKey;
 
   String get isFirstStartAppKey =>
       _isFirstStartAppKey ??
       FYcConfigDefaultConfigUtils.defaultStoragesConfig.isFirstStartAppKey;
+
+  String get rewardAmountKey =>
+      _rewardAmountKey ??
+      FYcConfigDefaultConfigUtils.defaultStoragesConfig.rewardAmountKey;
 
   String get userTokenKey =>
       _userTokenKey ??
@@ -114,23 +121,25 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
         storagesConfig._lastInterstitialAdShowTimestampKey;
     _lastRewardAdShowTimestampKey ??=
         storagesConfig._lastRewardAdShowTimestampKey;
+    _rewardAmountKey ??= storagesConfig._rewardAmountKey;
   }
 
-  FYcConfigStoragesConfig copyWith({
-    String? isFirstStartAppKey,
-    String? userTokenKey,
-    String? userTokenExpiredKey,
-    String? userInfoKey,
-    String? walletInfoKey,
-    String? behaviorInfoKey,
-    String? remoteConfigKey,
-    String? isSignPrivacyPolicyKey,
-    String? lastRemoteConfigTimestampKey,
-    String? lastInterstitialAdShowTimestampKey,
-    String? lastRewardAdShowTimestampKey,
-  }) {
+  FYcConfigStoragesConfig copyWith(
+      {String? isFirstStartAppKey,
+      String? userTokenKey,
+      String? userTokenExpiredKey,
+      String? userInfoKey,
+      String? walletInfoKey,
+      String? behaviorInfoKey,
+      String? remoteConfigKey,
+      String? isSignPrivacyPolicyKey,
+      String? lastRemoteConfigTimestampKey,
+      String? lastInterstitialAdShowTimestampKey,
+      String? lastRewardAdShowTimestampKey,
+      String? rewardAmountKey}) {
     return FYcConfigStoragesConfig(
         isFirstStartAppKey: isFirstStartAppKey ?? _isFirstStartAppKey,
+        rewardAmountKey: rewardAmountKey ?? _rewardAmountKey,
         userTokenKey: userTokenKey ?? _userTokenKey,
         userTokenExpiredKey: userTokenExpiredKey ?? _userTokenExpiredKey,
         userInfoKey: userInfoKey ?? _userInfoKey,
@@ -152,6 +161,7 @@ class FYcConfigStoragesConfig extends FYcConfigBaseConfig {
     if (other == null) return this;
     return copyWith(
         isFirstStartAppKey: other._isFirstStartAppKey,
+        rewardAmountKey: other._rewardAmountKey,
         userTokenKey: other._userTokenKey,
         userTokenExpiredKey: other._userTokenExpiredKey,
         userInfoKey: other._userInfoKey,
